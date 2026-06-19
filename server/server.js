@@ -1,10 +1,14 @@
 import express from "express";
 import { config } from "dotenv";
+import connectDB from "./config/db.js";
 config();
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+
+// Import the database
+connectDB();
 
 // Enable to use req.body when forms are submitted
 app.use(express.urlencoded({ extended: true }));
