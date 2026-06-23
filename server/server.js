@@ -12,6 +12,7 @@ connectDB();
 
 // Import routers
 import authRouter from "./routes/auth-routes.js";
+import productRouter from "./routes/product-routes.js";
 
 // Enable to use req.body when forms are submitted
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +24,8 @@ app.get("/", (req, res) => {
 });
 
 // Enable routes
-app.use("/auth", authRouter)
+app.use("/auth", authRouter);
+app.use("/products", productRouter);
 
 //Error Handling Middleware
 app.use((req, res) => {
