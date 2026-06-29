@@ -16,6 +16,7 @@ import productRouter from "./routes/product-routes.js";
 import categoryRouter from "./routes/category-routes.js";
 import orderRouter from "./routes/order-routes.js";
 import wishlistRouter from "./routes/wishlist-routes.js";
+import reviewsRouter from "./routes/review-routes.js";
 
 // Enable to use req.body when forms are submitted
 app.use(express.urlencoded({ extended: true }));
@@ -26,12 +27,14 @@ app.get("/", (req, res) => {
   res.send("Welcome to Prive API.");
 });
 
+const API = "/api/v1";
 // Enable routes
-app.use("/auth", authRouter);
-app.use("/products", productRouter);
-app.use("/categories", categoryRouter);
-app.use("/orders", orderRouter);
-app.use("/wishlist", wishlistRouter);
+app.use(`${API}/auth`, authRouter);
+app.use(`${API}/products`, productRouter);
+app.use(`${API}/categories`, categoryRouter);
+app.use(`${API}/orders`, orderRouter);
+app.use(`${API}/wishlist`, wishlistRouter);
+app.use(`${API}/reviews`, reviewsRouter);
 
 //Error Handling Middleware
 app.use((req, res) => {
