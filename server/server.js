@@ -17,6 +17,7 @@ import categoryRouter from "./routes/category-routes.js";
 import orderRouter from "./routes/order-routes.js";
 import wishlistRouter from "./routes/wishlist-routes.js";
 import reviewsRouter from "./routes/review-routes.js";
+import cartRouter from "./routes/cart.routes.js"
 
 // Enable to use req.body when forms are submitted
 app.use(express.urlencoded({ extended: true }));
@@ -35,6 +36,7 @@ app.use(`${API}/categories`, categoryRouter);
 app.use(`${API}/orders`, orderRouter);
 app.use(`${API}/wishlist`, wishlistRouter);
 app.use(`${API}/reviews`, reviewsRouter);
+app.use(`${API}/cart`, cartRouter);
 
 //Error Handling Middleware
 app.use((req, res) => {
